@@ -1,0 +1,878 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JR & Michelle for YCC</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Comic+Neue:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --red: #e63946;
+            --blue: #1d3557;
+            --yellow: #f4d35e;
+            --cream: #fdf0d5;
+            --green: #2a9d8f;
+            --black: #111;
+            --white: #fff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Space Mono', monospace;
+            background: var(--cream);
+            color: var(--black);
+            overflow-x: hidden;
+            cursor: default;
+        }
+
+        /* ---- HERO ---- */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 2rem;
+            position: relative;
+            background: var(--blue);
+            color: var(--white);
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '$44,000,000,000';
+            position: absolute;
+            font-family: 'Archivo Black', sans-serif;
+            font-size: clamp(4rem, 15vw, 14rem);
+            color: rgba(255,255,255,0.04);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(-12deg);
+            white-space: nowrap;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-family: 'Archivo Black', sans-serif;
+            font-size: clamp(3rem, 10vw, 8rem);
+            line-height: 0.95;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+
+        .hero h1 .ampersand {
+            color: var(--yellow);
+            display: inline-block;
+            animation: wiggle 2s ease-in-out infinite;
+        }
+
+        @keyframes wiggle {
+            0%, 100% { transform: rotate(0deg); }
+            25% { transform: rotate(5deg); }
+            75% { transform: rotate(-5deg); }
+        }
+
+        .hero .subtitle {
+            font-family: 'Comic Neue', cursive;
+            font-size: clamp(1.2rem, 3vw, 2rem);
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            line-height: 1.4;
+        }
+
+        .hero .subtitle em {
+            color: var(--yellow);
+            font-style: normal;
+            text-decoration: underline var(--yellow);
+            text-decoration-thickness: 3px;
+            text-underline-offset: 4px;
+        }
+
+        .hero .for-ycc {
+            font-family: 'Comic Neue', cursive;
+            font-size: clamp(1rem, 2.5vw, 1.5rem);
+            background: var(--red);
+            color: var(--white);
+            padding: 0.3rem 1.5rem;
+            display: inline-block;
+            transform: rotate(-2deg);
+            margin-bottom: 1.5rem;
+            border: 2px solid var(--black);
+            box-shadow: 4px 4px 0 var(--black);
+        }
+
+        .badge {
+            display: inline-block;
+            background: var(--yellow);
+            color: var(--black);
+            font-family: 'Comic Neue', cursive;
+            font-weight: 700;
+            padding: 0.5rem 1.2rem;
+            transform: rotate(3deg);
+            border: 2px solid var(--black);
+            box-shadow: 3px 3px 0 var(--black);
+            font-size: 0.9rem;
+            margin-top: 1rem;
+        }
+
+        .scroll-hint {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            font-family: 'Comic Neue', cursive;
+            font-size: 1rem;
+            animation: bounce 2s infinite;
+            color: var(--yellow);
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(-10px); }
+        }
+
+        /* ---- SECTION SHARED ---- */
+        section {
+            padding: 5rem 2rem;
+        }
+
+        .section-title {
+            font-family: 'Archivo Black', sans-serif;
+            font-size: clamp(2rem, 5vw, 4rem);
+            text-transform: uppercase;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        /* ---- THE PITCH ---- */
+        .pitch {
+            background: var(--white);
+            border-top: 4px solid var(--black);
+            border-bottom: 4px solid var(--black);
+            text-align: center;
+            padding: 4rem 2rem;
+        }
+
+        .pitch p {
+            max-width: 750px;
+            margin: 0 auto;
+            font-size: clamp(1.1rem, 2vw, 1.4rem);
+            line-height: 1.7;
+            font-family: 'Comic Neue', cursive;
+        }
+
+        .pitch .highlight {
+            background: var(--yellow);
+            padding: 0 4px;
+            font-weight: 700;
+        }
+
+        .pitch .struck {
+            text-decoration: line-through;
+            opacity: 0.5;
+        }
+
+        /* ---- CANDIDATES ---- */
+        .candidates {
+            background: var(--cream);
+        }
+
+        .candidates-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .candidate-card {
+            background: var(--white);
+            border: 3px solid var(--black);
+            box-shadow: 8px 8px 0 var(--black);
+            padding: 0;
+            overflow: hidden;
+            transition: transform 0.2s;
+        }
+
+        .candidate-card:hover {
+            transform: rotate(-1deg) scale(1.02);
+        }
+
+        .candidate-card:nth-child(2):hover {
+            transform: rotate(1deg) scale(1.02);
+        }
+
+        .candidate-card img {
+            width: 100%;
+            height: 380px;
+            object-fit: cover;
+            object-position: top;
+            border-bottom: 3px solid var(--black);
+            display: block;
+        }
+
+        .candidate-info {
+            padding: 1.5rem;
+        }
+
+        .candidate-info h3 {
+            font-family: 'Archivo Black', sans-serif;
+            font-size: 1.8rem;
+            text-transform: uppercase;
+            margin-bottom: 0.3rem;
+        }
+
+        .candidate-info .role {
+            font-family: 'Comic Neue', cursive;
+            font-weight: 700;
+            color: var(--red);
+            font-size: 1rem;
+            margin-bottom: 0.8rem;
+            display: block;
+        }
+
+        .candidate-info .from {
+            font-size: 0.85rem;
+            color: #666;
+            margin-bottom: 0.8rem;
+            display: block;
+        }
+
+        .candidate-info p {
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* ---- RALLY PHOTO ---- */
+        .rally-break {
+            position: relative;
+            height: 450px;
+            overflow: hidden;
+            border-top: 4px solid var(--black);
+            border-bottom: 4px solid var(--black);
+        }
+
+        .rally-break img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center 30%;
+            display: block;
+        }
+
+        .rally-break .overlay-text {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.8));
+            padding: 3rem 2rem 2rem;
+            color: var(--white);
+            font-family: 'Archivo Black', sans-serif;
+            font-size: clamp(1.5rem, 4vw, 3rem);
+            text-transform: uppercase;
+            text-align: center;
+        }
+
+        /* ---- MARCH PHOTO ---- */
+        .march-break {
+            position: relative;
+            height: 400px;
+            overflow: hidden;
+            border-top: 4px solid var(--black);
+            border-bottom: 4px solid var(--black);
+        }
+
+        .march-break img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            display: block;
+        }
+
+        /* ---- PLATFORM ---- */
+        .platform {
+            background: var(--blue);
+            color: var(--white);
+        }
+
+        .platform .section-title {
+            color: var(--yellow);
+        }
+
+        .platform-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .platform-card {
+            background: rgba(255,255,255,0.08);
+            border: 2px solid rgba(255,255,255,0.2);
+            padding: 2rem;
+            position: relative;
+            transition: transform 0.2s, background 0.2s;
+        }
+
+        .platform-card:hover {
+            transform: translateY(-4px);
+            background: rgba(255,255,255,0.12);
+        }
+
+        .platform-card .card-tag {
+            font-family: 'Comic Neue', cursive;
+            font-weight: 700;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--yellow);
+            margin-bottom: 0.8rem;
+            display: block;
+        }
+
+        .platform-card h3 {
+            font-family: 'Archivo Black', sans-serif;
+            font-size: 1.3rem;
+            margin-bottom: 0.8rem;
+            text-transform: uppercase;
+        }
+
+        .platform-card p {
+            font-size: 0.9rem;
+            line-height: 1.6;
+            opacity: 0.9;
+        }
+
+        .platform-card ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .platform-card ul li {
+            font-size: 0.9rem;
+            line-height: 1.6;
+            padding-left: 1.2rem;
+            position: relative;
+            margin-bottom: 0.5rem;
+        }
+
+        .platform-card ul li::before {
+            content: '*';
+            position: absolute;
+            left: 0;
+            color: var(--yellow);
+            font-weight: bold;
+        }
+
+        /* ---- ENDOWMENT COUNTER ---- */
+        .endowment-section {
+            background: var(--black);
+            color: var(--white);
+            text-align: center;
+            padding: 4rem 2rem;
+            border-top: 4px solid var(--red);
+            border-bottom: 4px solid var(--red);
+        }
+
+        .endowment-label {
+            font-family: 'Comic Neue', cursive;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 0.5rem;
+            color: var(--yellow);
+        }
+
+        .endowment-number {
+            font-family: 'Archivo Black', sans-serif;
+            font-size: clamp(2.5rem, 8vw, 6rem);
+            color: var(--green);
+            margin-bottom: 0.5rem;
+        }
+
+        .endowment-sub {
+            font-family: 'Comic Neue', cursive;
+            font-size: clamp(1rem, 2vw, 1.3rem);
+            opacity: 0.7;
+        }
+
+        .endowment-sub2 {
+            font-family: 'Comic Neue', cursive;
+            font-size: 0.95rem;
+            margin-top: 1rem;
+            color: var(--red);
+            font-weight: 700;
+        }
+
+        /* ---- QUOTE SECTION ---- */
+        .quote-section {
+            background: var(--red);
+            color: var(--white);
+            text-align: center;
+            padding: 5rem 2rem;
+            border-top: 4px solid var(--black);
+            border-bottom: 4px solid var(--black);
+        }
+
+        .quote-section blockquote {
+            font-family: 'Archivo Black', sans-serif;
+            font-size: clamp(1.5rem, 4vw, 3rem);
+            max-width: 900px;
+            margin: 0 auto;
+            line-height: 1.3;
+            text-transform: uppercase;
+        }
+
+        .quote-section .quote-attr {
+            font-family: 'Comic Neue', cursive;
+            font-size: 1rem;
+            margin-top: 1.5rem;
+            opacity: 0.8;
+        }
+
+        /* ---- TRANSPARENCY ---- */
+        .transparency {
+            background: var(--white);
+            border-top: 4px solid var(--black);
+        }
+
+        .transparency-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .transparency-content p {
+            font-size: 1.05rem;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .transparency-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .transparency-list li {
+            font-size: 1rem;
+            line-height: 1.6;
+            padding: 0.8rem 0;
+            padding-left: 2rem;
+            position: relative;
+            border-bottom: 1px dashed #ccc;
+        }
+
+        .transparency-list li::before {
+            content: '\2713';
+            position: absolute;
+            left: 0;
+            color: var(--green);
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        /* ---- CTA / FOOTER ---- */
+        .cta {
+            background: var(--yellow);
+            text-align: center;
+            padding: 5rem 2rem;
+            border-top: 4px solid var(--black);
+        }
+
+        .cta h2 {
+            font-family: 'Archivo Black', sans-serif;
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+            color: var(--black);
+        }
+
+        .cta p {
+            font-family: 'Comic Neue', cursive;
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+            line-height: 1.5;
+        }
+
+        .cta .big-button {
+            display: inline-block;
+            background: var(--red);
+            color: var(--white);
+            font-family: 'Archivo Black', sans-serif;
+            font-size: 1.3rem;
+            padding: 1rem 3rem;
+            text-decoration: none;
+            text-transform: uppercase;
+            border: 3px solid var(--black);
+            box-shadow: 6px 6px 0 var(--black);
+            transition: all 0.15s;
+            cursor: pointer;
+        }
+
+        .cta .big-button:hover {
+            transform: translate(3px, 3px);
+            box-shadow: 3px 3px 0 var(--black);
+        }
+
+        .footer {
+            background: var(--black);
+            color: rgba(255,255,255,0.5);
+            text-align: center;
+            padding: 2rem;
+            font-family: 'Comic Neue', cursive;
+            font-size: 0.85rem;
+        }
+
+        .footer .visitor-count {
+            margin-top: 0.5rem;
+            font-size: 0.75rem;
+            opacity: 0.4;
+        }
+
+        /* ---- STICKERS / DECORATIONS ---- */
+        .sticker {
+            display: inline-block;
+            background: var(--yellow);
+            color: var(--black);
+            font-family: 'Comic Neue', cursive;
+            font-weight: 700;
+            padding: 0.4rem 1rem;
+            border: 2px solid var(--black);
+            box-shadow: 3px 3px 0 var(--black);
+            position: absolute;
+            font-size: 0.8rem;
+            z-index: 10;
+            pointer-events: none;
+        }
+
+        .sticker.red {
+            background: var(--red);
+            color: var(--white);
+        }
+
+        .sticker.green {
+            background: var(--green);
+            color: var(--white);
+        }
+
+        /* ---- RESPONSIVE ---- */
+        @media (max-width: 768px) {
+            .candidates-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .candidate-card img {
+                height: 300px;
+            }
+
+            .rally-break {
+                height: 300px;
+            }
+
+            .march-break {
+                height: 280px;
+            }
+
+            .platform-grid {
+                grid-template-columns: 1fr;
+            }
+
+            section {
+                padding: 3rem 1.5rem;
+            }
+        }
+
+        /* ---- SPARKLE CURSOR ---- */
+        .sparkle {
+            position: fixed;
+            pointer-events: none;
+            font-size: 1.2rem;
+            z-index: 9999;
+            animation: sparkle-fade 0.8s ease-out forwards;
+        }
+
+        @keyframes sparkle-fade {
+            0% { opacity: 1; transform: scale(1) translateY(0); }
+            100% { opacity: 0; transform: scale(0.3) translateY(-30px); }
+        }
+
+        /* ---- TILT CLASSES ---- */
+        .tilt-left { transform: rotate(-2deg); }
+        .tilt-right { transform: rotate(2deg); }
+
+        /* ---- SCRIBBLE UNDERLINE ---- */
+        .scribble {
+            position: relative;
+            display: inline;
+        }
+        .scribble::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 100%;
+            height: 8px;
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 10'%3E%3Cpath d='M0 5 Q 25 0, 50 5 Q 75 10, 100 5' fill='none' stroke='%23e63946' stroke-width='2'/%3E%3C/svg%3E") repeat-x;
+            background-size: 100px 10px;
+        }
+
+        /* ---- NAV DOTS ---- */
+        .nav-dots {
+            position: fixed;
+            right: 1.5rem;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 999;
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+        }
+
+        .nav-dots a {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--black);
+            opacity: 0.3;
+            display: block;
+            transition: opacity 0.2s, transform 0.2s;
+            border: 2px solid var(--black);
+        }
+
+        .nav-dots a:hover,
+        .nav-dots a.active {
+            opacity: 1;
+            transform: scale(1.3);
+            background: var(--red);
+        }
+
+        @media (max-width: 768px) {
+            .nav-dots { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAV DOTS -->
+    <nav class="nav-dots">
+        <a href="#hero" title="Top"></a>
+        <a href="#about" title="Who We Are"></a>
+        <a href="#platform" title="Platform"></a>
+        <a href="#transparency" title="Transparency"></a>
+        <a href="#join" title="Join Us"></a>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero" id="hero">
+        <div class="hero-content">
+            <div class="for-ycc">for YCC President & Vice President</div>
+            <h1>JR <span class="ampersand">&</span> Michelle</h1>
+            <p class="subtitle">running for Yale to <em>respect us. all of us.</em></p>
+            <div class="badge">not sponsored by Yale's endowment</div>
+        </div>
+        <div class="scroll-hint">scroll down, respectfully &darr;</div>
+    </section>
+
+    <!-- PITCH -->
+    <section class="pitch">
+        <p>
+            Every year, YCC candidates promise the same things. Every year, administrators nod politely and change nothing.
+            The <span class="struck">strongly-worded emails</span> aren't working.
+            It's time to <span class="highlight">actually do something about it.</span>
+        </p>
+    </section>
+
+    <!-- CANDIDATES -->
+    <section class="candidates" id="about">
+        <h2 class="section-title">Meet the Ticket</h2>
+        <div class="candidates-grid">
+            <div class="candidate-card">
+                <img src="images/jr-suit.jpg" alt="JR Walker">
+                <div class="candidate-info">
+                    <h3>JR Walker</h3>
+                    <span class="role">President</span>
+                    <span class="from">Starkville, Mississippi</span>
+                    <p>
+                        Dwight Hall Advocacy Coordinator. Student organizer with the Endowment Justice Collective.
+                        Understands how power works at this institution, and isn't afraid to step on toes when it matters.
+                        More interested in moving the needle than padding a resume.
+                    </p>
+                </div>
+            </div>
+            <div class="candidate-card">
+                <img src="images/michelle-gates.jpg" alt="Michelle Jimenez">
+                <div class="candidate-info">
+                    <h3>Michelle Jimenez</h3>
+                    <span class="role">Vice President</span>
+                    <span class="from">El Paso, Texas</span>
+                    <p>
+                        Murray College Senator. Dwight Hall Student Executive Committee.
+                        Student rep on the Public Safety Advisory Board.
+                        Ran the Season of Giving Drive that matched 300+ Yalies with 300+ local K-8 students.
+                        Has seen the Senate pass unanimously and get ignored. Ready to try something different.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- RALLY PHOTO BREAK -->
+    <div class="rally-break">
+        <img src="images/rally.jpg" alt="Students rallying for fair food at Yale">
+        <div class="overlay-text">Yale won't respect us on principle.<br>They'll respect us under pressure.</div>
+    </div>
+
+    <!-- ENDOWMENT COUNTER -->
+    <section class="endowment-section">
+        <div class="endowment-label">Yale's Endowment (and counting)</div>
+        <div class="endowment-number" id="endowment-counter">$44,000,000,000</div>
+        <div class="endowment-sub">larger than the GDP of 110+ countries</div>
+        <div class="endowment-sub2">but apparently they can't afford to fund your summer experience</div>
+    </section>
+
+    <!-- PLATFORM -->
+    <section class="platform" id="platform">
+        <h2 class="section-title">What We're Fighting For</h2>
+        <div class="platform-grid">
+            <div class="platform-card">
+                <span class="card-tag">Respect Students</span>
+                <h3>Your Money, Your Experience</h3>
+                <ul>
+                    <li>Restore full funding and resources for students on financial aid</li>
+                    <li>Repeal time, manner, and place restrictions on student gatherings</li>
+                    <li>Restore cultural center funding and PL hours slashed this year</li>
+                    <li>More student reps on Public Safety Board, open to the entire student body</li>
+                </ul>
+            </div>
+            <div class="platform-card">
+                <span class="card-tag">Respect Workers</span>
+                <h3>Fair Pay, Fair Treatment</h3>
+                <ul>
+                    <li>Raise the student minimum wage to $22/hr, on par with peer institutions</li>
+                    <li>Protect contracted faculty and staff positions</li>
+                    <li>Join the Fair Food Program to protect farmworkers in Yale's supply chain</li>
+                    <li>Good faith negotiation of union contracts for dining hall, facilities, and staff</li>
+                </ul>
+            </div>
+            <div class="platform-card">
+                <span class="card-tag">Respect New Haven</span>
+                <h3>Be a Real Neighbor</h3>
+                <ul>
+                    <li>Divest from ICE-contracted companies</li>
+                    <li>Divest from fossil fuels and weapons manufacturers</li>
+                    <li>Pay a fair share to the city of New Haven</li>
+                    <li>Use Yale's resources and privilege to actually serve the community</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- MARCH PHOTO BREAK -->
+    <div class="march-break">
+        <img src="images/jr-march.jpg" alt="JR marching for farmworker rights">
+    </div>
+
+    <!-- QUOTE -->
+    <section class="quote-section">
+        <blockquote>
+            "When Yale chooses austerity, it chooses disrespect."
+        </blockquote>
+        <div class="quote-attr">&mdash; JR, who meant it</div>
+    </section>
+
+    <!-- TRANSPARENCY -->
+    <section class="transparency" id="transparency">
+        <h2 class="section-title">No More Closed Doors</h2>
+        <div class="transparency-content">
+            <p>
+                When administrators show up to the Senate, they come with promises they can't keep.
+                They make decisions behind closed doors and rarely seek student input. The YCC shouldn't be
+                a rubber stamp for admin PR. It should be a <strong>real channel of student power.</strong>
+            </p>
+            <p>Here's what we'll actually do differently:</p>
+            <ul class="transparency-list">
+                <li>Publish private meeting notes with administration so you know what's really being said</li>
+                <li>Hold weekly town halls for students to voice concerns directly</li>
+                <li>Publicly break down the endowment so everyone understands where the money goes</li>
+                <li>Use the YCC's tools and reach to channel student frustration into organized action</li>
+                <li>Build democratic decision-making infrastructure that puts student voices at the center</li>
+                <li>Stand up for what we believe in as your reps, no matter the personal cost</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta" id="join">
+        <h2>Build Respect,<br>Together</h2>
+        <p>
+            Join JR, Michelle, and the thousands of students, workers, and community members
+            that breathe life into this campus.
+        </p>
+        <a href="mailto:jr.walker@yale.edu" class="big-button">Get Involved</a>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div>JR & Michelle for YCC 2026 &mdash; made with leftover dining hall energy</div>
+        <div class="visitor-count">Yale's Board of Trustees has 17 members. You deserve a seat at the table too.</div>
+    </footer>
+
+    <script>
+        // ---- Endowment counter that ticks up ----
+        const counterEl = document.getElementById('endowment-counter');
+        let endowment = 44000000000;
+        // Yale's endowment grows ~$10B/year => ~$317/second
+        setInterval(() => {
+            endowment += 317;
+            counterEl.textContent = '$' + endowment.toLocaleString();
+        }, 1000);
+
+        // ---- Sparkle on click ----
+        const sparkles = ['*', '+', '!'];
+        document.addEventListener('click', (e) => {
+            const sparkle = document.createElement('div');
+            sparkle.className = 'sparkle';
+            sparkle.textContent = sparkles[Math.floor(Math.random() * sparkles.length)];
+            sparkle.style.left = e.clientX + 'px';
+            sparkle.style.top = e.clientY + 'px';
+            sparkle.style.color = ['#e63946', '#f4d35e', '#2a9d8f', '#1d3557'][Math.floor(Math.random() * 4)];
+            document.body.appendChild(sparkle);
+            setTimeout(() => sparkle.remove(), 800);
+        });
+
+        // ---- Active nav dot on scroll ----
+        const sections = document.querySelectorAll('section[id]');
+        const dots = document.querySelectorAll('.nav-dots a');
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const top = section.offsetTop - 200;
+                if (window.scrollY >= top) current = section.id;
+            });
+            dots.forEach(dot => {
+                dot.classList.remove('active');
+                if (dot.getAttribute('href') === '#' + current) dot.classList.add('active');
+            });
+        });
+    </script>
+
+</body>
+</html>
