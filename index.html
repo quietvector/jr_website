@@ -421,6 +421,10 @@
             font-weight: 700;
         }
 
+        .endowment-sub2 span {
+            transition: opacity 0.4s ease;
+        }
+
         /* ---- QUOTE SECTION ---- */
         .quote-section {
             background: var(--red);
@@ -740,12 +744,12 @@
         <div class="overlay-text">Yale won't respect us on principle.<br>They'll respect us under pressure.</div>
     </div>
 
-    <!-- ENDOWMENT COUNTER -->
+    <!-- ENDOWMENT -->
     <section class="endowment-section">
-        <div class="endowment-label">Yale's Endowment (and counting)</div>
-        <div class="endowment-number" id="endowment-counter">$44,000,000,000</div>
+        <div class="endowment-label">Yale's Endowment</div>
+        <div class="endowment-number">$44,100,000,000</div>
         <div class="endowment-sub">larger than the GDP of 110+ countries</div>
-        <div class="endowment-sub2">but apparently they can't afford to fund your summer experience</div>
+        <div class="endowment-sub2">but apparently they can't afford to <span id="cant-afford">fund your summer experience</span></div>
     </section>
 
     <!-- PLATFORM -->
@@ -836,14 +840,26 @@
     </footer>
 
     <script>
-        // ---- Endowment counter that ticks up ----
-        const counterEl = document.getElementById('endowment-counter');
-        let endowment = 44000000000;
-        // Yale's endowment grows ~$10B/year => ~$317/second
+        // ---- Rotate "can't afford" text ----
+        const cantAfford = document.getElementById('cant-afford');
+        const things = [
+            'fund your summer experience',
+            'pay student workers $22/hr',
+            'keep cultural center hours',
+            'respect farmworkers in their supply chain',
+            'give New Haven its fair share',
+            'protect contracted staff positions',
+            'let students gather on their own campus',
+        ];
+        let idx = 0;
         setInterval(() => {
-            endowment += 317;
-            counterEl.textContent = '$' + endowment.toLocaleString();
-        }, 1000);
+            cantAfford.style.opacity = 0;
+            setTimeout(() => {
+                idx = (idx + 1) % things.length;
+                cantAfford.textContent = things[idx];
+                cantAfford.style.opacity = 1;
+            }, 400);
+        }, 3000);
 
         // ---- Sparkle on click ----
         const sparkles = ['*', '+', '!'];
