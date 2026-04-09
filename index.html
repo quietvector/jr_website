@@ -452,6 +452,63 @@
             transition: opacity 0.4s ease;
         }
 
+        /* ---- DIVEST SECTION ---- */
+        .divest-section {
+            background: var(--black);
+            color: var(--white);
+            border-top: 4px solid var(--pink);
+            border-bottom: 4px solid var(--pink);
+        }
+
+        .divest-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .divest-section .section-title {
+            color: var(--pink);
+            text-align: left;
+        }
+
+        .divest-lead {
+            font-family: 'NeueMachina', sans-serif; font-weight: 800;
+            font-size: clamp(1.1rem, 2vw, 1.3rem);
+            line-height: 1.5;
+            margin-bottom: 1.5rem;
+        }
+
+        .divest-content p {
+            font-size: 1rem;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+            opacity: 0.9;
+        }
+
+        .divest-content em {
+            color: var(--yellow);
+            font-style: italic;
+        }
+
+        .divest-button {
+            display: inline-block;
+            background: var(--pink);
+            color: var(--white);
+            font-family: 'NeueMachina', sans-serif; font-weight: 800;
+            font-size: 1.1rem;
+            padding: 0.8rem 2rem;
+            text-decoration: none;
+            text-transform: uppercase;
+            border: 3px solid var(--white);
+            box-shadow: 5px 5px 0 var(--white);
+            transition: all 0.15s;
+            margin-top: 0.5rem;
+        }
+
+        .divest-button:hover {
+            transform: translate(3px, 3px);
+            box-shadow: 2px 2px 0 var(--white);
+        }
+
         /* ---- QUOTE SECTION ---- */
         .quote-section {
             background: var(--pink);
@@ -756,9 +813,9 @@
                     <span class="role">President</span>
                     <span class="from">Starkville, Mississippi</span>
                     <p>
-                        Dwight Hall Advocacy Coordinator. Student organizer with the Endowment Justice Collective.
+                        Dwight Hall Advocacy Coordinator. 2025 FOCUS Director. Student organizer with the Endowment Justice Collective.
                         Understands how power works at this institution, and isn't afraid to step on toes when it matters.
-                        More interested in moving the needle than padding a resume.
+                        More interested in making real change than playing nice with administrators.
                     </p>
                 </div>
             </div>
@@ -772,7 +829,7 @@
                         Murray College Senator. Dwight Hall Student Executive Committee.
                         Student rep on the Public Safety Advisory Board.
                         Ran the Season of Giving Drive that matched 300+ Yalies with 300+ local K-8 students.
-                        Has seen the Senate pass unanimously and get ignored. Ready to try something different.
+                        Has seen the Senate pass proposals unanimously and get ignored. Ready to try something different.
                     </p>
                 </div>
             </div>
@@ -821,6 +878,26 @@
         <img src="images/jr-march.jpeg" alt="JR marching for farmworker rights">
     </div>
 
+    <!-- DIVEST -->
+    <section class="divest-section" id="divest">
+        <div class="divest-content">
+            <h2 class="section-title">Yale Profits from ICE</h2>
+            <p class="divest-lead">
+                Hours after an ICE agent killed Renee Nicole Good in Minnesota, Yale's Advisory Committee on Investor Responsibility told students it would not divest from Palantir &mdash; a company critical to ICE's surveillance and deportation operations nationwide.
+            </p>
+            <p>
+                Palantir, co-founded by Trump megadonor Peter Thiel, built "ImmigrationOS" under a $30M DHS contract &mdash; software that lets ICE build data-mined profiles of immigrants, track them on a map, and deport them. Yale's ties don't stop there: its endowment funds General Catalyst, a leading investor in Anduril, the sole contractor behind hundreds of AI-guided watchtowers on the southern border, and TDR Capital, which holds a significant stake in the company behind one of ICE's largest children's detention facilities.
+            </p>
+            <p>
+                This is happening in our backyard. ICE arrested a man inside Connecticut Superior Court in New Haven. A Wilbur Cross High School junior was abducted and detained for 44 days. At a local protest, a 13-year-old girl whose mother was taken by ICE pleaded: <em>"You're causing a lot of pain to these families by taking them away."</em>
+            </p>
+            <p>
+                Yale's dollars should fund our futures, not the companies endangering them.
+            </p>
+            <a href="https://actionnetwork.org/letters/yale-corp-divest-from-palantir-and-ice-tech" target="_blank" class="divest-button">Sign the Petition &rarr;</a>
+        </div>
+    </section>
+
     <!-- QUOTE -->
     <section class="quote-section">
         <blockquote>
@@ -857,7 +934,7 @@
             Join JR, Michelle, and the thousands of students, workers, and community members
             that breathe life into this campus.
         </p>
-        <a href="mailto:johnrobert.walker@yale.edu" class="big-button">Get Involved</a>
+        <a href="mailto:johnrobert.walker@yale.edu" class="big-button">Contact Us</a>
     </section>
 
     <!-- FOOTER -->
