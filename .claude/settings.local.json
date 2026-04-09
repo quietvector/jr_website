@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(cp \"C:/Users/ajels/Downloads/PP Neue Machina - Free for Personal Use/PP Neue Machina - Free for Personal Use/PPNeueMachina-InktrapUltrabold.otf\" \"C:/Users/ajels/projects/jr_website/fonts/\")",
+      "Bash(cp \"C:/Users/ajels/Downloads/PP Neue Machina - Free for Personal Use/PP Neue Machina - Free for Personal Use/PPNeueMachina-InktrapRegular.otf\" \"C:/Users/ajels/projects/jr_website/fonts/\")",
+      "Bash(cp \"C:/Users/ajels/Downloads/PP Neue Machina - Free for Personal Use/PP Neue Machina - Free for Personal Use/PPNeueMachina-PlainRegular.otf\" \"C:/Users/ajels/projects/jr_website/fonts/\")",
+      "Bash(cp \"C:/Users/ajels/Downloads/PP Neue Machina - Free for Personal Use/PP Neue Machina - Free for Personal Use/PPNeueMachina-PlainLight.otf\" \"C:/Users/ajels/projects/jr_website/fonts/\")"
+    ]
+  }
+}
