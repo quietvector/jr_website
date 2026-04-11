@@ -733,6 +733,85 @@
             }
         }
 
+        /* ---- RECEIPT ---- */
+        .receipt-section {
+            background: var(--white);
+            border-top: 4px solid var(--black);
+            border-bottom: 4px solid var(--black);
+            padding: 4rem 2rem;
+        }
+
+        .receipt {
+            max-width: 500px;
+            margin: 0 auto;
+            background: var(--cream);
+            border: 2px dashed var(--black);
+            padding: 2.5rem 2rem;
+            position: relative;
+        }
+
+        .receipt-header {
+            text-align: center;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px dashed var(--black);
+        }
+
+        .receipt-header h2 {
+            font-family: 'NeueMachina', sans-serif; font-weight: 800;
+            font-size: 1.5rem;
+            text-transform: uppercase;
+            margin-bottom: 0.3rem;
+        }
+
+        .receipt-header p {
+            font-family: 'NeueMachinaPlain', sans-serif;
+            font-size: 0.85rem;
+            opacity: 0.6;
+        }
+
+        .receipt-items {
+            list-style: none;
+            padding: 0;
+        }
+
+        .receipt-items li {
+            font-family: 'NeueMachinaPlain', sans-serif;
+            font-size: 0.95rem;
+            padding: 0.5rem 0;
+            border-bottom: 1px dotted #ccc;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .receipt-items li span.cut {
+            font-family: 'NeueMachina', sans-serif; font-weight: 800;
+            font-size: 0.7rem;
+            color: var(--pink);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .receipt-footer {
+            margin-top: 1.5rem;
+            padding-top: 1rem;
+            border-top: 2px dashed var(--black);
+            text-align: center;
+        }
+
+        .receipt-footer .ratio {
+            font-family: 'NeueMachina', sans-serif; font-weight: 800;
+            font-size: 1.1rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .receipt-footer .ratio-note {
+            font-family: 'NeueMachinaPlain', sans-serif;
+            font-size: 0.85rem;
+            opacity: 0.7;
+        }
+
         /* ---- SPARKLE CURSOR ---- */
         .sparkle {
             position: fixed;
@@ -845,6 +924,33 @@
         <div class="endowment-number">$44,100,000,000</div>
         <div class="endowment-sub">larger than the GDP of 110+ countries</div>
         <div class="endowment-sub2">but apparently they can't afford to <span id="cant-afford">fund your summer experience</span></div>
+    </section>
+
+    <!-- RECEIPT: WHAT WE'VE LOST -->
+    <section class="receipt-section">
+        <div class="receipt">
+            <div class="receipt-header">
+                <h2>What Yale Has Cut</h2>
+                <p>a running list of what students have lost</p>
+            </div>
+            <ul class="receipt-items">
+                <li>ISA/SEA summer experience funding <span class="cut">cut</span></li>
+                <li>Summer storage funding <span class="cut">cut</span></li>
+                <li>Unlimited Google Drive storage <span class="cut">gone</span></li>
+                <li>Dining hall plates and mugs <span class="cut">gone</span></li>
+                <li>To-go boxes <span class="cut">gone</span></li>
+                <li>Commons on Fridays <span class="cut">closed</span></li>
+                <li>Adobe software access <span class="cut">cut</span></li>
+                <li>HBO Max / Infinity <span class="cut">cut</span></li>
+                <li>Shuttle hours and availability <span class="cut">slashed</span></li>
+                <li>Cultural center funding <span class="cut">slashed</span></li>
+                <li>Career strategy funding <span class="cut">cut</span></li>
+            </ul>
+            <div class="receipt-footer">
+                <div class="ratio">Staff-to-student ratio: 1:1</div>
+                <div class="ratio-note">Yale has as many administrators and staff as it has undergrads.</div>
+            </div>
+        </div>
     </section>
 
     <!-- CANDIDATES -->
