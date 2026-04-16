@@ -911,49 +911,6 @@
             }
         }
 
-        /* ---- GIANT VOTE BUTTON ---- */
-        .vote-cta {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.8rem;
-            font-family: 'NeueMachina', sans-serif;
-            font-weight: 800;
-            text-transform: uppercase;
-            text-decoration: none;
-            background: var(--yellow);
-            color: var(--black);
-            font-size: clamp(1.8rem, 5.5vw, 3.8rem);
-            padding: 1.1rem 3.2rem;
-            border: 4px solid var(--black);
-            box-shadow: 10px 10px 0 var(--pink), 10px 10px 0 4px var(--black);
-            margin: 0.5rem auto 1.5rem;
-            letter-spacing: 0.02em;
-            transform: rotate(-1.5deg);
-            transition: transform 0.15s, box-shadow 0.15s, background 0.15s;
-            animation: cta-wobble 3s ease-in-out infinite;
-        }
-
-        .vote-cta:hover {
-            background: var(--pink);
-            color: var(--white);
-            transform: rotate(-1.5deg) scale(1.04);
-            box-shadow: 14px 14px 0 var(--yellow), 14px 14px 0 4px var(--black);
-            animation: none;
-        }
-
-        .vote-cta .vote-cta-arrow {
-            display: inline-block;
-            transition: transform 0.2s;
-        }
-
-        .vote-cta:hover .vote-cta-arrow {
-            transform: translateX(10px);
-        }
-
-        @keyframes cta-wobble {
-            0%, 100% { transform: rotate(-1.5deg); }
-            50% { transform: rotate(1.5deg); }
-        }
 
         .nav-dots {
             position: fixed;
@@ -1013,11 +970,6 @@
             <div class="for-ycc">for YCC President & Vice President</div>
             <h1>JR <span class="ampersand">&</span> Michelle</h1>
             <p class="subtitle">running for Yale to <em>respect us. all of us.</em></p>
-            <div>
-                <a class="vote-cta" href="https://yale.us12.list-manage.com/track/click?u=23a2b6aa6777adc320a0d8c88&id=a5b160127c&e=3b89035d52" target="_blank" rel="noopener">
-                    Vote here <span class="vote-cta-arrow">&rarr;</span>
-                </a>
-            </div>
             <div class="badge">not sponsored by Yale's endowment</div>
         </div>
         <div class="scroll-hint">scroll down to learn how &darr;</div>
