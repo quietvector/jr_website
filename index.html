@@ -846,8 +846,7 @@
             background-size: 100px 10px;
         }
 
-        /* ---- NAV DOTS ---- */
-        /* ---- VOTE BANNER ---- */
+        /* ---- THANK YOU BANNER ---- */
         .vote-banner {
             position: sticky;
             top: 0;
@@ -855,7 +854,6 @@
             width: 100%;
             background: var(--yellow);
             color: var(--black);
-            text-decoration: none;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -867,14 +865,6 @@
             letter-spacing: 0.05em;
             font-size: clamp(1.1rem, 2.6vw, 1.8rem);
             border-bottom: 4px solid var(--black);
-            transition: background 0.2s, color 0.2s;
-            animation: vote-pulse 2s ease-in-out infinite;
-        }
-
-        .vote-banner:hover {
-            background: var(--pink);
-            color: var(--white);
-            animation: none;
         }
 
         .vote-banner .vote-dot {
@@ -884,24 +874,6 @@
             background: var(--pink);
             display: inline-block;
             animation: bounce 1.2s ease-in-out infinite;
-        }
-
-        .vote-banner:hover .vote-dot {
-            background: var(--yellow);
-        }
-
-        .vote-banner .vote-arrow {
-            display: inline-block;
-            transition: transform 0.2s;
-        }
-
-        .vote-banner:hover .vote-arrow {
-            transform: translateX(8px);
-        }
-
-        @keyframes vote-pulse {
-            0%, 100% { box-shadow: 0 0 0 0 rgba(246, 41, 213, 0.6); }
-            50% { box-shadow: 0 0 0 14px rgba(246, 41, 213, 0); }
         }
 
         @media (max-width: 600px) {
@@ -948,12 +920,12 @@
 </head>
 <body>
 
-    <!-- VOTE BANNER -->
-    <a class="vote-banner" href="https://yale.us12.list-manage.com/track/click?u=23a2b6aa6777adc320a0d8c88&id=a5b160127c&e=3b89035d52" target="_blank" rel="noopener">
+    <!-- THANK YOU BANNER -->
+    <div class="vote-banner">
         <span class="vote-dot"></span>
-        <span>Voting is now open — click here to vote</span>
-        <span class="vote-arrow">&rarr;</span>
-    </a>
+        <span>Thank you for voting &mdash; we appreciate your support</span>
+        <span class="vote-dot"></span>
+    </div>
 
     <!-- NAV DOTS -->
     <nav class="nav-dots">
